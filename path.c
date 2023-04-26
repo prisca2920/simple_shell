@@ -19,8 +19,8 @@ char *finds_path(char *command)
 
 	path_twn = malloc(_strlen(path) + 1);
 
-	path_twn = _strcpy(path_cpy, path);
-	path_torn = _split(path_cpy, ":");
+	path_twn = _strcpy(path_twn, path);
+	path_torn = _split(path_twn, ":");
 
 	while (path_torn[i])
 	{
