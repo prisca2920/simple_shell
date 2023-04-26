@@ -9,19 +9,19 @@
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	unsigned int index = 0;
-	char *ptr = NULL;
+	unsigned int count = 0;
+	char *len = NULL;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 
-	ptr = malloc(nmemb * size);
+	len = malloc(nmemb * size);
 
-	if (ptr == NULL)
+	if (len == NULL)
 		return (NULL);
 
-	for (; index < (nmemb * size); index++)
-		ptr[index] = 0;
+	for (; count < (nmemb * size); count++)
+		len[count] = 0;
 
-	return (ptr);
+	return (len);
 }
