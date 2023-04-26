@@ -8,19 +8,19 @@
 #include <string.h>
 #include <sys/stat.h>
 
-int _strcmp(char *s1, char *s2);
-char *_strcpy(char *dest, char *src);
-char *finds_path(char *command);
-char **_split(char *str, char *sep);
-char *_strcat(char *dest, char *src);
-int _strlen(char *s);
-char *_getenv(char *en_v);
+/* global variable*/
+extern char **environ;
+
 void *_calloc(unsigned int nmemb, unsigned int size);
+char *_getenv(char *en_v);
 void _env(void);
 int exec(char **args);
+char *finds_path(char *command);
 int vacant_line(char *bf);
-
-/* GLOBAL VAR*/
-extern char **environ;
+char *_strcat(char *dest, char *src);
+char **_split(char *str, char *delim);
+int _strcmp(char *s1, char *s2);
+int _strlen(char *s);
+char *_strcpy(char *dest, char *src);
 
 #endif
