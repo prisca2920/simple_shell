@@ -49,7 +49,7 @@ char **_split(char *str, char *delim)
 	while (len)
 	{
 	tok_str[j] = len;
-	len = strtok(NULL, delim;
+	len = strtok(NULL, delim);
 
 	j++;
 	}
