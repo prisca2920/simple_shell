@@ -14,11 +14,11 @@ char *finds_path(char *command);
 char **_split(char *str, char *sep);
 char *_strcat(char *dest, char *src);
 int _strlen(char *s);
-char *_getenv(char *env_var);
+char *_getenv(char *en_v);
 void *_calloc(unsigned int nmemb, unsigned int size);
 void _env(void);
-int execute(char **args);
-int empty_line(char *buff);
+int exec(char **args);
+int vacant_line(char *bf);
 
 /* GLOBAL VAR*/
 extern char **environ;
