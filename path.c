@@ -8,11 +8,11 @@
 
 char *finds_path(char *command)
 {
-	char *path = _getenv("PATH"), *path_twn;
-	char **path_torn;
+	char **path_tok, *path_twn;
+	char *path = _getenv("PATH");
 	char *path_cat = NULL;
-	int i = 0, path_len = 0;
 	struct stat info;
+	int j = 0, path_len = 0;
 
 	if (stat(command, &info) == 0)
 		return (command);
@@ -20,31 +20,32 @@ char *finds_path(char *command)
 	path_twn = malloc(_strlen(path) + 1);
 
 	path_twn = _strcpy(path_twn, path);
-	path_torn = _split(path_twn, ":");
 
-	while (path_torn[i])
+	path_tok = _split(path_twn, ":");
+
+	while (path_tok[j])
 	{
-		path_len = _strlen(path_torn[i]);
+	path_len = _strlen(path_tok[j]);
 
-		if (path_torn[i][path_len - 1] != '/')
-			path_cat = _strcat(path_torn[i], "/");
+	if (path_tok[j][path_len - 1] != '/')
+		path_cat = _strcat(path_tok[j], "/");
 
-		path_cat = _strcat(path_torn[i], command);
+	path_cat = _strcat(path_tok[j], command);
 
-		if (stat(path_cat, &info) == 0)
-			break;
+	if (stat(path_cat, &info) == 0)
+		break;
 
-		i++;
+	j++;
 	}
 
 	free(path_twn);
 
-	if (!path_torn[i])
+	if (!path_tok[j])
 	{
-		free(path_torn);
-		return (NULL);
+	free(path_tok);
+	return (NULL);
 	}
 
-	free(path_torn);
+	free(path_tok);
 	return (path_cat);
 }
