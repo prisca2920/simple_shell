@@ -18,7 +18,7 @@ int main(void)
 			printf("hsh$ ");
 
 		bf_size = getline(&bf, &record_size, stdin);
-		if (bf_size == -1 || _strcmp("exit\n", buff) == 0)
+		if (bf_size == -1 || _strcmp("exit\n", bf) == 0)
 		{
 			free(bf);
 			break;
@@ -31,14 +31,14 @@ int main(void)
 			continue;
 		}
 
-		if (empty_line(bf) == 1)
+		if (vacant_line(bf) == 1)
 		{
 			exit_status = 0;
 			continue;
 		}
 
 		args = _split(bf, " ");
-		args[0] = search_path(args[0]);
+		args[0] = finds_path(args[0]);
 
 		if (args[0] != NULL)
 			exit_status = exec(args);

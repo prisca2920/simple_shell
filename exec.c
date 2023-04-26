@@ -13,7 +13,7 @@ int exec(char **args)
 	if (x == 0)
 	{
 		if (execve(args[0], args, environ) == -1)
-			error("Error");
+			perror("Error");
 	}
 	else
 	{
